@@ -18,6 +18,10 @@ func TestRunWithCommit(id int64, s Status, c Conclusion, commit string) Run {
 	return TestRunWithWorkflowAndCommit(123, id, s, c, commit)
 }
 
+func TestRunWithOrgRequiredWorkflow(id int64, s Status, c Conclusion, commit string) Run {
+	return TestRunWithWorkflowAndCommit(456, id, s, c, commit)
+}
+
 func TestRunWithWorkflowAndCommit(workflowId, runId int64, s Status, c Conclusion, commit string) Run {
 	return Run{
 		WorkflowID: workflowId,
@@ -55,6 +59,18 @@ var TestRuns []Run = []Run{
 	TestRun(8, Requested, ""),
 	TestRun(9, Queued, ""),
 	TestRun(10, Completed, Stale),
+}
+
+var TestRunsWithOrgRequiredWorkflows []Run = []Run{
+	TestRunWithOrgRequiredWorkflow(1, Completed, TimedOut, "cool commit"),
+	TestRunWithOrgRequiredWorkflow(2, InProgress, "", "cool commit"),
+	TestRunWithOrgRequiredWorkflow(3, Completed, Success, "cool commit"),
+	TestRunWithOrgRequiredWorkflow(4, Completed, Cancelled, "cool commit"),
+	TestRun(5, Completed, Failure),
+	TestRun(6, Completed, Neutral),
+	TestRun(7, Completed, Skipped),
+	TestRun(8, Requested, ""),
+	TestRun(9, Queued, ""),
 }
 
 var WorkflowRuns []Run = []Run{

@@ -138,6 +138,7 @@ var HelpTopics = []helpTopic{
 
 			The %[1]s--template%[1]s flag requires a string argument in Go template syntax, and will only print
 			those JSON values which match the query.
+
 			In addition to the Go template functions in the standard library, the following functions can be used
 			with this formatting directive:
 			- %[1]sautocolor%[1]s: like %[1]scolor%[1]s, but only emits color to terminals
@@ -150,6 +151,14 @@ var HelpTopics = []helpTopic{
 			- %[1]stimefmt <format> <time>%[1]s: formats a timestamp using Go's %[1]sTime.Format%[1]s function
 			- %[1]struncate <length> <input>%[1]s: ensures input fits within length
 			- %[1]shyperlink <url> <text>%[1]s: renders a terminal hyperlink
+
+			The following Sprig template library functions can also be used with this formatting directive:
+			- %[1]scontains <arg> <string>%[1]s: checks if %[1]sstring%[1]s contains %[1]sarg%[1]s
+			- %[1]shasPrefix <prefix> <string>%[1]s: checks if %[1]sstring%[1]s starts with %[1]sprefix%[1]s
+			- %[1]shasSuffix <suffix> <string>%[1]s: checks if %[1]sstring%[1]s ends with %[1]ssuffix%[1]s
+			- %[1]sregexMatch <regex> <string>%[1]s: checks if %[1]sstring%[1]s has any matches for %[1]sregex%[1]s
+
+			For more information about the Sprig library, see <https://masterminds.github.io/sprig/>.
 
 			To learn more about Go templates, see: <https://golang.org/pkg/text/template/>.
 		`, "`"),

@@ -80,7 +80,7 @@ func NewWithWriter(w io.Writer, isTTY bool, maxWidth int, cs *iostreams.ColorSch
 		tp.AddHeader(
 			upperCasedHeaders,
 			WithPadding(paddingFunc),
-			WithColor(cs.LightGrayUnderline),
+			WithColor(cs.TableHeader),
 		)
 	}
 
